@@ -1,0 +1,59 @@
+# Enum Notes
+
+A local web app for tracking enumeration steps during CTFs and pentests.
+Runs entirely on your machine — no internet required after install.
+
+---
+
+## Setup
+
+### Requirements
+- Python 3.8+
+
+### Install & run
+
+**Linux / macOS**
+```bash
+cd enumtool
+pip install -r requirements.txt
+python app.py
+```
+
+**Windows**
+```cmd
+cd enumtool
+pip install -r requirements.txt
+python app.py
+```
+
+Then open your browser to: http://127.0.0.1:5000
+
+---
+
+## Features
+
+- **Multiple targets** — save and switch between targets from the sidebar
+- **Sections** — target info, open ports, credentials, vulnerabilities, exploitation path, notes
+- **Export to markdown** — downloads a clean .md file named after the target IP and date
+- **Saves persist** — all notes saved as JSON in the `saves/` folder next to app.py
+- **Unsaved change warning** — warns before you lose unsaved work
+
+---
+
+## File structure
+
+```
+enumtool/
+  app.py              # Flask backend
+  requirements.txt    # Python deps (just Flask)
+  templates/
+    index.html        # Frontend
+  saves/              # Auto-created — your notes live here as JSON
+```
+
+## Notes
+
+- All data stays local — nothing is sent anywhere
+- The `saves/` folder is created automatically on first run
+- Markdown exports are named `enum_<ip>_<date>.md`
+- You can back up or sync your `saves/` folder to keep notes across machines
